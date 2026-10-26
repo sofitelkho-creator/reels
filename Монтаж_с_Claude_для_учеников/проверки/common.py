@@ -102,6 +102,10 @@ def transcribe(path, lang="ru", prompt=None, words=True):
             kw["initial_prompt"] = prompt
         segs = _model[ggml].transcribe(audio, **kw)
         return [{"w": sg.text.strip(), "s": round(sg.t0 / 100, 3), "e": round(sg.t1 / 100, 3)} for sg in segs if sg.text.strip()]
+    # sherpa-onnx (GigaAM, русский) — если задана папка SHERPA_MODEL (когда huggingface.co недоступен; модель лежит в релизах GitHub k2-fsa/sherpa-onnx)
+    sherpa = os.environ.get("SHERPA_MODEL")
+    if sherpa:
+        return _transcribe_sherpa(path, sherpa)
     try:
         from faster_whisper import WhisperModel
     except ImportError:
@@ -111,6 +115,28 @@ def transcribe(path, lang="ru", prompt=None, words=True):
     audio = load_audio(path)   # звук читаем сами через ffmpeg: встроенный декодер faster-whisper ломается на части версий PyAV
     segs, _ = _model[name].transcribe(audio, language=lang, word_timestamps=words, initial_prompt=prompt, condition_on_previous_text=False, vad_filter=False)
     return [{"w": w.word.strip(), "s": round(w.start, 3), "e": round(w.end, 3)} for sg in segs for w in (sg.words or [])]
+
+
+def _transcribe_sherpa(path, d):
+    """GigaAM через sherpa-onnx: модель выдаёт буквы со временем, из них собираем слова. Без пунктуации и цифр."""
+    import sherpa_onnx
+    if d not in _model:
+        _model[d] = sherpa_onnx.OfflineRecognizer.from_transducer(
+            encoder=os.path.join(d, "encoder.int8.onnx"), decoder=os.path.join(d, "decoder.onnx"), joiner=os.path.join(d, "joiner.onnx"),
+            tokens=os.path.join(d, "tokens.txt"), model_type="nemo_transducer", num_threads=os.cpu_count() or 4)
+    audio = load_audio(path)
+    st = _model[d].create_stream(); st.accept_waveform(SR, audio); _model[d].decode_stream(st)
+    r = st.result
+    words, cur = [], None
+    for tok, t in zip(r.tokens, r.timestamps):
+        if tok.strip() == "":
+            cur = None; continue
+        if cur is None:
+            cur = {"w": "", "s": t, "e": t}; words.append(cur)
+        cur["w"] += tok; cur["e"] = t
+    # время буквы — её начало; конец слова — плюс одна буква (~0,08 с)
+    end = len(audio) / SR
+    return [{"w": w["w"], "s": round(w["s"], 3), "e": round(min(end, w["e"] + 0.08), 3)} for w in words]
 
 
 def save(obj, path):
