@@ -73,13 +73,15 @@ for a, b in merged:
         if a <= m <= b: words.append({"w": w["w"], "s": round((t + max(0, w["s"] - a)) / A.speed, 3), "e": round((t + min(b, w["e"]) - a) / A.speed, 3)})
     t += b - a
 out = A.out or os.path.splitext(A.src)[0] + "_нарезка.mp4"
-f = []
+# каждый кусок — отдельный вход с точной перемоткой: trim по одному входу копит в памяти все кадры между кусками
+f, inputs = [], []
 for i, (a, b) in enumerate(merged):
     d = b - a
-    f.append(f"[0:v]trim=start={a:.3f}:end={b:.3f},setpts=PTS-STARTPTS[v{i}];"
-             f"[0:a]atrim=start={a:.3f}:end={b:.3f},asetpts=PTS-STARTPTS,afade=t=in:d=0.005,afade=t=out:st={max(0, d - 0.006):.3f}:d=0.006[a{i}];")
+    inputs += ["-ss", f"{a:.3f}", "-t", f"{d:.3f}", "-i", A.src]
+    f.append(f"[{i}:v]trim=duration={d:.3f},setpts=PTS-STARTPTS[v{i}];"
+             f"[{i}:a]atrim=duration={d:.3f},asetpts=PTS-STARTPTS,afade=t=in:d=0.005,afade=t=out:st={max(0, d - 0.006):.3f}:d=0.006[a{i}];")
 f.append("".join(f"[v{i}][a{i}]" for i in range(len(merged))) + f"concat=n={len(merged)}:v=1:a=1[v][a];[v]setpts=PTS/{A.speed},fps=30[vo];[a]atempo={A.speed}[ao]")
-subprocess.run([FF, "-v", "error", "-y", "-i", A.src, "-filter_complex", "".join(f), "-map", "[vo]", "-map", "[ao]",
+subprocess.run([FF, "-v", "error", "-y"] + inputs + ["-filter_complex", "".join(f), "-map", "[vo]", "-map", "[ao]",
                 "-c:v", "libx264", "-crf", "18", "-preset", "medium", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", out], check=True)
 edl = os.path.splitext(A.src)[0] + ".edl.json"
 save({"source": os.path.abspath(A.src), "cut": os.path.abspath(out), "speed": A.speed, "segments": out_segs, "words": words, "duration": round(t / A.speed, 3)}, edl)
