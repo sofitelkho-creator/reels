@@ -10,6 +10,8 @@ html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#000}
 /* экран-инфографика: тёмный фон, спикер в скруглённом окне */
 #screen{position:absolute;inset:0;background-color:var(--bg);background-size:cover;background-position:center;opacity:0}
 /* призыв в конце — Mediocre Cartoon с тёмной обводкой (регламент) */
+/* белый текст на светлых вставках: тёмный контур, чтобы читался на любом фоне */
+body.stroke #word,body.stroke .head{-webkit-text-stroke:6px rgba(0,0,0,.7);paint-order:stroke fill}
 .head.cta{font-family:Cartoon;-webkit-text-stroke:8px #1a1a1a;paint-order:stroke fill}
 #pip{position:absolute;overflow:hidden;border-radius:44px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
 #pip img{width:100%;height:100%;object-fit:cover}
@@ -47,10 +49,15 @@ function inOut(t, a, b, dIn = .35, dOut = .25) {
 }
 async function setup(plan) {
   P = plan;
+  // цвет акцента и субтитров: жёлтый — визовый аккаунт, у других аккаунтов свой
+  if (plan.accent) document.documentElement.style.setProperty('--y', plan.accent);
+  if (plan.stroke) document.body.classList.add('stroke');
+  // отступ крупных фраз от краёв: шире — фраза мельче, но не заходит в углы под интерфейс Instagram
+  const hm = plan.headMargin || 60;
   if (plan.flag) $('#flag').src = plan.flag;
   const L = $('#layer');
   plan.heads.forEach((h, i) => {
-    const d = document.createElement('div'); d.className = 'head' + (h.cta ? ' cta' : ''); d.id = 'h' + i; d.style.top = h.y + 'px';
+    const d = document.createElement('div'); d.className = 'head' + (h.cta ? ' cta' : ''); d.id = 'h' + i; d.style.top = h.y + 'px'; d.style.left = d.style.right = hm + 'px';
     d.innerHTML = h.html; L.appendChild(d);
   });
   // крупная фраза — в одну строку: вторая строка налезла бы на голову; не влезает — уменьшаем шрифт
