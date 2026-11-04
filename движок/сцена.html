@@ -1,0 +1,93 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Soyuz;src:url(../шрифты/SoyuzGrotesk-Bold.ttf)}
+@font-face{font-family:Cartoon;src:url(../шрифты/MediocreCartoon-Regular.ttf)}
+:root{--y:#EAFC00;--bg:#0f0f0f}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#000}
+#stage{position:absolute;inset:0;overflow:hidden}
+#frame{position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover;transform-origin:50% 0}
+/* экран-инфографика: тёмный фон, спикер в скруглённом окне */
+#screen{position:absolute;inset:0;background:var(--bg);opacity:0}
+#pip{position:absolute;overflow:hidden;border-radius:44px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+#pip img{width:100%;height:100%;object-fit:cover}
+.card{position:absolute;left:50%;transform:translateX(-50%);opacity:0}
+.img-card{border-radius:28px;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.55);background:#fff}
+.img-card img{display:block;width:100%}
+/* крупные фразы */
+.head{position:absolute;left:60px;right:60px;text-align:center;font:400 124px/0.98 Soyuz;color:#fff;text-transform:uppercase;
+  text-shadow:0 4px 18px rgba(0,0,0,.45);letter-spacing:-1px}
+.head .a{color:var(--y)}
+.head .sub{display:block;font-size:56px;line-height:1.2;text-transform:none;margin-top:14px;letter-spacing:0}
+/* мелкие субтитры по слову */
+#word{position:absolute;font:400 50px Soyuz;color:var(--y);text-shadow:0 3px 10px rgba(0,0,0,.6);white-space:nowrap;transform:translateX(-50%)}
+#flag{position:absolute;left:0;top:0;width:1080px;height:640px;object-fit:cover;opacity:0;
+  -webkit-mask-image:linear-gradient(#000 55%,transparent);mask-image:linear-gradient(#000 55%,transparent)}
+.big{position:absolute;left:0;right:0;text-align:center;font:400 150px/1 Soyuz;color:var(--y);opacity:0}
+.cap{position:absolute;left:60px;right:60px;text-align:center;font:400 46px/1.2 Soyuz;color:#fff;opacity:0}
+</style></head>
+<body><div id="stage">
+<img id="frame">
+<img id="flag">
+<div id="screen"><div id="pip"><img id="pipimg"></div></div>
+<div id="layer"></div>
+<div id="word"></div>
+</div>
+<script>
+// Сцена управляется извне: setup(план) один раз, потом draw(t, кадр) на каждый кадр.
+let P = null; const $ = s => document.querySelector(s);
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const ease = x => 1 - Math.pow(1 - clamp(x), 3);
+// появление: из размытия и чуть снизу; уход: растворение
+function inOut(t, a, b, dIn = .35, dOut = .25) {
+  if (t < a || t > b) return 0;
+  return Math.min(ease((t - a) / dIn), clamp((b - t) / dOut));
+}
+function setup(plan) {
+  P = plan;
+  if (plan.flag) $('#flag').src = plan.flag;
+  const L = $('#layer');
+  plan.heads.forEach((h, i) => {
+    const d = document.createElement('div'); d.className = 'head'; d.id = 'h' + i; d.style.top = h.y + 'px';
+    d.innerHTML = h.html; L.appendChild(d);
+  });
+  (plan.screens || []).forEach((s, i) => s.items.forEach((it, j) => {
+    const d = document.createElement('div'); d.id = `s${i}_${j}`;
+    if (it.img) { d.className = 'card img-card'; d.style.width = it.w + 'px'; d.innerHTML = `<img src="${it.img}">`; }
+    else { d.className = it.big ? 'big' : 'cap'; d.innerHTML = it.html; if (it.size) d.style.fontSize = it.size + 'px'; }
+    d.style.top = it.y + 'px'; L.appendChild(d);
+  }));
+}
+function draw(t, src) {
+  $('#frame').src = src; $('#pipimg').src = src;
+  // флаг-шапка в заставке
+  $('#flag').style.opacity = P.flag ? inOut(t, P.intro[0], P.intro[1], .4, .4) : 0;
+  P.heads.forEach((h, i) => {
+    const k = inOut(t, h.from, h.to), d = $('#h' + i);
+    d.style.opacity = k; d.style.filter = `blur(${(1 - k) * 14}px)`; d.style.transform = `translateY(${(1 - k) * 30}px) scale(${.94 + .06 * k})`;
+  });
+  // экран-инфографика
+  let scr = 0, inScreen = null;
+  (P.screens || []).forEach((s, i) => {
+    const k = inOut(t, s.from, s.to, .3, .25); if (k > scr) { scr = k; inScreen = s; }
+    s.items.forEach((it, j) => {
+      const d = $(`#s${i}_${j}`), q = Math.min(inOut(t, it.at, s.to, .3, .25), k);
+      d.style.opacity = q;
+      d.style.transform = (it.img ? 'translateX(-50%) ' : '') + `translateY(${(1 - q) * 60}px) scale(${it.big ? .7 + .3 * ease(q) : 1})`;
+    });
+  });
+  $('#screen').style.opacity = scr;
+  if (inScreen) {
+    // окно со спикером: из полного кадра сжимается в скруглённое окно сверху
+    const w = 1080 - (1080 - inScreen.pip.w) * scr, h = 1920 - (1920 - inScreen.pip.h) * scr;
+    const x = (1080 - w) / 2, y = inScreen.pip.y * scr;
+    Object.assign($('#pip').style, { left: x + 'px', top: y + 'px', width: w + 'px', height: h + 'px', borderRadius: 44 * scr + 'px' });
+  }
+  // мелкий субтитр: текущее слово
+  const w = P.words.find(w => t >= w.s && t < w.e);
+  const word = $('#word');
+  const pos = inScreen && scr > .5 ? P.wordPosScreen : P.wordPos;
+  word.textContent = w ? w.w : ''; word.style.left = pos[0] + 'px'; word.style.top = pos[1] + 'px';
+  word.style.opacity = P.heads.some(h => t >= h.from && t <= h.to && h.hideWord) ? 0 : 1;
+}
+</script></body></html>
