@@ -21,6 +21,8 @@ words = [w for w in words if w["w"]]
 for s in S.get("screens", []):
     for it in s["items"]:
         if "img" in it: it["img"] = url(it["img"])
+    for b in s.get("bgs", []):
+        b["img"] = url(b["img"])
 plan = {"words": words, "heads": S.get("heads", []), "screens": S.get("screens", []), "intro": S.get("intro", [0, 0]),
         "flag": url(S["flag"]) if S.get("flag") else None,
         "wordPos": S.get("wordPos", [300, 1320]), "wordPosScreen": S.get("wordPosScreen", [540, 790])}

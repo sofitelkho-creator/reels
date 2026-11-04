@@ -8,7 +8,9 @@ html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#000}
 #stage{position:absolute;inset:0;overflow:hidden}
 #frame{position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover;transform-origin:50% 0}
 /* экран-инфографика: тёмный фон, спикер в скруглённом окне */
-#screen{position:absolute;inset:0;background:var(--bg);opacity:0}
+#screen{position:absolute;inset:0;background-color:var(--bg);background-size:cover;background-position:center;opacity:0}
+/* призыв в конце — Mediocre Cartoon с тёмной обводкой (регламент) */
+.head.cta{font-family:Cartoon;-webkit-text-stroke:8px #1a1a1a;paint-order:stroke fill}
 #pip{position:absolute;overflow:hidden;border-radius:44px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
 #pip img{width:100%;height:100%;object-fit:cover}
 .card{position:absolute;left:50%;transform:translateX(-50%);opacity:0}
@@ -16,15 +18,15 @@ html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#000}
 .img-card img{display:block;width:100%}
 /* крупные фразы */
 .head{position:absolute;left:60px;right:60px;text-align:center;font:400 124px/0.98 Soyuz;color:#fff;text-transform:uppercase;
-  text-shadow:0 4px 18px rgba(0,0,0,.45);letter-spacing:-1px}
+  text-shadow:0 4px 18px rgba(0,0,0,.45);letter-spacing:-1px;white-space:nowrap}
 .head .a{color:var(--y)}
 .head .sub{display:block;font-size:56px;line-height:1.2;text-transform:none;margin-top:14px;letter-spacing:0}
 /* мелкие субтитры по слову */
 #word{position:absolute;font:400 50px Soyuz;color:var(--y);text-shadow:0 3px 10px rgba(0,0,0,.6);white-space:nowrap;transform:translateX(-50%)}
 #flag{position:absolute;left:0;top:0;width:1080px;height:640px;object-fit:cover;opacity:0;
   -webkit-mask-image:linear-gradient(#000 55%,transparent);mask-image:linear-gradient(#000 55%,transparent)}
-.big{position:absolute;left:0;right:0;text-align:center;font:400 150px/1 Soyuz;color:var(--y);opacity:0}
-.cap{position:absolute;left:60px;right:60px;text-align:center;font:400 46px/1.2 Soyuz;color:#fff;opacity:0}
+.big{position:absolute;left:0;right:0;text-align:center;font:400 150px/1 Soyuz;color:var(--y);opacity:0;text-shadow:0 4px 20px rgba(0,0,0,.7)}
+.cap{position:absolute;left:60px;right:60px;text-align:center;font:400 46px/1.2 Soyuz;color:#fff;opacity:0;text-shadow:0 3px 12px rgba(0,0,0,.7)}
 </style></head>
 <body><div id="stage">
 <img id="frame">
@@ -43,14 +45,24 @@ function inOut(t, a, b, dIn = .35, dOut = .25) {
   if (t < a || t > b) return 0;
   return Math.min(ease((t - a) / dIn), clamp((b - t) / dOut));
 }
-function setup(plan) {
+async function setup(plan) {
   P = plan;
   if (plan.flag) $('#flag').src = plan.flag;
   const L = $('#layer');
   plan.heads.forEach((h, i) => {
-    const d = document.createElement('div'); d.className = 'head'; d.id = 'h' + i; d.style.top = h.y + 'px';
+    const d = document.createElement('div'); d.className = 'head' + (h.cta ? ' cta' : ''); d.id = 'h' + i; d.style.top = h.y + 'px';
     d.innerHTML = h.html; L.appendChild(d);
   });
+  // крупная фраза — в одну строку: вторая строка налезла бы на голову; не влезает — уменьшаем шрифт
+  await document.fonts.ready;
+  document.querySelectorAll('.head').forEach(d => {
+    let fs = 124;
+    while (d.scrollWidth > d.clientWidth && fs > 56) { fs -= 4; d.style.fontSize = fs + 'px'; }
+  });
+  // фото-фоны загружаем заранее, иначе первый кадр со сменой фона выйдет пустым
+  (plan.screens || []).forEach(s => (s.bgs || []).forEach(b => {
+    const im = new Image(); im.src = b.img; im.style.display = 'none'; document.body.appendChild(im);
+  }));
   (plan.screens || []).forEach((s, i) => s.items.forEach((it, j) => {
     const d = document.createElement('div'); d.id = `s${i}_${j}`;
     if (it.img) { d.className = 'card img-card'; d.style.width = it.w + 'px'; d.innerHTML = `<img src="${it.img}">`; }
@@ -77,6 +89,9 @@ function draw(t, src) {
     });
   });
   $('#screen').style.opacity = scr;
+  // фон экрана: тёмный или смена фото (затемнены, чтобы текст читался)
+  const bg = inScreen && inScreen.bgs ? inScreen.bgs.filter(b => t >= b.at).pop() : null;
+  $('#screen').style.backgroundImage = bg ? `linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.6)),url("${bg.img}")` : 'none';
   if (inScreen) {
     // окно со спикером: из полного кадра сжимается в скруглённое окно сверху
     const w = 1080 - (1080 - inScreen.pip.w) * scr, h = 1920 - (1920 - inScreen.pip.h) * scr;
