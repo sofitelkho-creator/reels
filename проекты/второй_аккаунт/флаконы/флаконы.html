@@ -1,0 +1,35 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#e9e4dc}
+#g{position:absolute;left:90px;top:520px;width:900px;display:grid;grid-template-columns:repeat(3,1fr);gap:40px 30px}
+.b{display:flex;justify-content:center;opacity:0}
+svg{width:230px;height:330px;filter:drop-shadow(0 18px 22px rgba(0,0,0,.18))}
+</style></head><body>
+<div id="g"></div>
+<script>
+// Девять одинаковых безымянных флаконов: появляются по очереди — «все флаконы выглядят одинаково»
+const bottle = `<svg viewBox="0 0 230 330">
+ <defs>
+  <linearGradient id="gl" x1="0" x2="1"><stop offset="0" stop-color="#cfd6da"/><stop offset=".25" stop-color="#f6f8f9"/><stop offset=".6" stop-color="#dfe5e8"/><stop offset="1" stop-color="#b9c2c7"/></linearGradient>
+  <linearGradient id="lq" x1="0" x2="1"><stop offset="0" stop-color="#e6c48d"/><stop offset=".3" stop-color="#f5ddb0"/><stop offset="1" stop-color="#d5ad6c"/></linearGradient>
+  <linearGradient id="cp" x1="0" x2="1"><stop offset="0" stop-color="#9a9a9a"/><stop offset=".35" stop-color="#e8e8e8"/><stop offset="1" stop-color="#8a8a8a"/></linearGradient>
+ </defs>
+ <rect x="88" y="10" width="54" height="62" rx="6" fill="url(#cp)"/>
+ <rect x="100" y="70" width="30" height="22" fill="#c9c9c9"/>
+ <rect x="25" y="92" width="180" height="225" rx="22" fill="url(#gl)" stroke="#aab3b8" stroke-width="2"/>
+ <rect x="37" y="150" width="156" height="155" rx="14" fill="url(#lq)" opacity=".85"/>
+ <rect x="62" y="185" width="106" height="44" rx="4" fill="#fff" opacity=".9"/>
+ <rect x="75" y="200" width="80" height="6" rx="3" fill="#bbb"/><rect x="88" y="212" width="54" height="5" rx="2.5" fill="#ccc"/>
+ <rect x="40" y="104" width="14" height="196" rx="7" fill="#fff" opacity=".55"/>
+</svg>`;
+const g = document.getElementById('g');
+for (let i = 0; i < 9; i++) { const d = document.createElement('div'); d.className = 'b'; d.innerHTML = bottle; g.appendChild(d); }
+const ease = x => 1 - Math.pow(1 - Math.max(0, Math.min(1, x)), 3);
+function draw(t) {
+  [...g.children].forEach((d, i) => {
+    const k = ease((t - i * 0.12) / 0.3);
+    d.style.opacity = k; d.style.transform = `translateY(${(1 - k) * 50}px) scale(${0.85 + 0.15 * k})`;
+  });
+}
+</script></body></html>
