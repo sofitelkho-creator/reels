@@ -1,0 +1,239 @@
+{
+ "words": [
+  {
+   "w": "I wanted to make a bottle",
+   "s": 2.44,
+   "e": 3.56
+  },
+  {
+   "w": "that tells the scent's story through music",
+   "s": 3.56,
+   "e": 5.7
+  },
+  {
+   "w": "Hmm… I think I need to redo this",
+   "s": 5.72,
+   "e": 7.4
+  },
+  {
+   "w": "Artem, come on, Artem",
+   "s": 7.44,
+   "e": 8.64
+  },
+  {
+   "w": "I make creative ads",
+   "s": 8.64,
+   "e": 10.28
+  },
+  {
+   "w": "for brands — to convey the idea of a scent",
+   "s": 10.28,
+   "e": 12.12
+  },
+  {
+   "w": "I took a record player",
+   "s": 12.12,
+   "e": 13.64
+  },
+  {
+   "w": "I took the wooden body of a record player",
+   "s": 13.64,
+   "e": 16.32
+  },
+  {
+   "w": "and a vinyl record, and cut them in half",
+   "s": 16.32,
+   "e": 18.24
+  },
+  {
+   "w": "then merged them into one bottle",
+   "s": 18.24,
+   "e": 19.92
+  },
+  {
+   "w": "the sprayer is shaped like a gramophone horn",
+   "s": 19.92,
+   "e": 23.08
+  },
+  {
+   "w": "Next, I wanted to make a 3D model",
+   "s": 23.08,
+   "e": 26.2
+  },
+  {
+   "w": "really quickly",
+   "s": 26.2,
+   "e": 27.4
+  },
+  {
+   "w": "I was wrong",
+   "s": 27.4,
+   "e": 28.28
+  },
+  {
+   "w": "I opened the app for 6 hours",
+   "s": 28.28,
+   "e": 29.92
+  },
+  {
+   "w": "and just dropped out of life",
+   "s": 29.92,
+   "e": 31.0
+  },
+  {
+   "w": "because I had no idea how it works",
+   "s": 31.0,
+   "e": 33.24
+  },
+  {
+   "w": "I thought sculpting would be easier",
+   "s": 33.24,
+   "e": 35.6
+  },
+  {
+   "w": "it wasn't",
+   "s": 35.6,
+   "e": 36.4
+  },
+  {
+   "w": "A million attempts later",
+   "s": 36.4,
+   "e": 37.88
+  },
+  {
+   "w": "I got the shape right",
+   "s": 37.88,
+   "e": 39.24
+  },
+  {
+   "w": "generated a wood texture with AI",
+   "s": 39.24,
+   "e": 41.72
+  },
+  {
+   "w": "the one I liked most",
+   "s": 41.72,
+   "e": 43.04
+  },
+  {
+   "w": "Along the way I got an idea",
+   "s": 43.04,
+   "e": 44.4
+  },
+  {
+   "w": "to design the center of the record",
+   "s": 44.4,
+   "e": 46.36
+  },
+  {
+   "w": "I used a frame from Alla Pugacheva's music video",
+   "s": 46.36,
+   "e": 49.6
+  },
+  {
+   "w": "because I loved its style",
+   "s": 49.6,
+   "e": 51.32
+  },
+  {
+   "w": "Here's the final result",
+   "s": 51.32,
+   "e": 53.0
+  },
+  {
+   "w": "Tell me in the comments — what do you think?",
+   "s": 53.0,
+   "e": 54.12
+  },
+  {
+   "w": "Thanks, love you all",
+   "s": 54.12,
+   "e": 55.2
+  },
+  {
+   "w": "Good luck, bye",
+   "s": 55.2,
+   "e": 56.12
+  },
+  {
+   "w": "Happiness, health, success!",
+   "s": 56.12,
+   "e": 57.93
+  }
+ ],
+ "heads": [
+  {
+   "from": 0,
+   "to": 2.35,
+   "y": 245,
+   "hideWord": true,
+   "html": "WHY ALL BOTTLES<span class=sub>look the same?</span>"
+  },
+  {
+   "from": 8.64,
+   "to": 12.1,
+   "y": 245,
+   "html": "ADS FOR BRANDS"
+  },
+  {
+   "from": 24.5,
+   "to": 27.3,
+   "y": 245,
+   "html": "3D “REAL QUICK”"
+  },
+  {
+   "from": 27.38,
+   "to": 28.25,
+   "y": 245,
+   "html": "I WAS WRONG"
+  },
+  {
+   "from": 28.3,
+   "to": 31.0,
+   "y": 245,
+   "html": "6 HOURS<span class=sub>dropped out of life</span>"
+  },
+  {
+   "from": 36.4,
+   "to": 39.15,
+   "y": 245,
+   "html": "A MILLION ATTEMPTS"
+  },
+  {
+   "from": 39.25,
+   "to": 41.65,
+   "y": 245,
+   "html": "AI TEXTURE"
+  },
+  {
+   "from": 51.3,
+   "to": 53.0,
+   "y": 245,
+   "html": "FINAL RESULT"
+  },
+  {
+   "from": 53.0,
+   "to": 54.05,
+   "y": 245,
+   "html": "WHAT DO YOU THINK?"
+  }
+ ],
+ "screens": [],
+ "intro": [
+  0,
+  0
+ ],
+ "flag": null,
+ "wordPos": [
+  540,
+  1380
+ ],
+ "accent": "#FFFFFF",
+ "stroke": true,
+ "headMargin": 120,
+ "captionWidth": 820,
+ "wordPosScreen": [
+  540,
+  790
+ ]
+}

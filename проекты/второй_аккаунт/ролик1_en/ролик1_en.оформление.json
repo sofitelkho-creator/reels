@@ -1,0 +1,229 @@
+{
+ "accent": "#FFFFFF",
+ "stroke": true,
+ "headMargin": 120,
+ "captionWidth": 820,
+ "wordPos": [
+  540,
+  1380
+ ],
+ "phrases": [
+  [
+   2.44,
+   3.56,
+   "I wanted to make a bottle"
+  ],
+  [
+   3.56,
+   5.7,
+   "that tells the scent's story through music"
+  ],
+  [
+   5.72,
+   7.4,
+   "Hmm… I think I need to redo this"
+  ],
+  [
+   7.44,
+   8.64,
+   "Artem, come on, Artem"
+  ],
+  [
+   8.64,
+   10.28,
+   "I make creative ads"
+  ],
+  [
+   10.28,
+   12.12,
+   "for brands — to convey the idea of a scent"
+  ],
+  [
+   12.12,
+   13.64,
+   "I took a record player"
+  ],
+  [
+   13.64,
+   16.32,
+   "I took the wooden body of a record player"
+  ],
+  [
+   16.32,
+   18.24,
+   "and a vinyl record, and cut them in half"
+  ],
+  [
+   18.24,
+   19.92,
+   "then merged them into one bottle"
+  ],
+  [
+   19.92,
+   23.08,
+   "the sprayer is shaped like a gramophone horn"
+  ],
+  [
+   23.08,
+   26.2,
+   "Next, I wanted to make a 3D model"
+  ],
+  [
+   26.2,
+   27.4,
+   "really quickly"
+  ],
+  [
+   27.4,
+   28.28,
+   "I was wrong"
+  ],
+  [
+   28.28,
+   29.92,
+   "I opened the app for 6 hours"
+  ],
+  [
+   29.92,
+   31.0,
+   "and just dropped out of life"
+  ],
+  [
+   31.0,
+   33.24,
+   "because I had no idea how it works"
+  ],
+  [
+   33.24,
+   35.6,
+   "I thought sculpting would be easier"
+  ],
+  [
+   35.6,
+   36.4,
+   "it wasn't"
+  ],
+  [
+   36.4,
+   37.88,
+   "A million attempts later"
+  ],
+  [
+   37.88,
+   39.24,
+   "I got the shape right"
+  ],
+  [
+   39.24,
+   41.72,
+   "generated a wood texture with AI"
+  ],
+  [
+   41.72,
+   43.04,
+   "the one I liked most"
+  ],
+  [
+   43.04,
+   44.4,
+   "Along the way I got an idea"
+  ],
+  [
+   44.4,
+   46.36,
+   "to design the center of the record"
+  ],
+  [
+   46.36,
+   49.6,
+   "I used a frame from Alla Pugacheva's music video"
+  ],
+  [
+   49.6,
+   51.32,
+   "because I loved its style"
+  ],
+  [
+   51.32,
+   53.0,
+   "Here's the final result"
+  ],
+  [
+   53.0,
+   54.12,
+   "Tell me in the comments — what do you think?"
+  ],
+  [
+   54.12,
+   55.2,
+   "Thanks, love you all"
+  ],
+  [
+   55.2,
+   56.12,
+   "Good luck, bye"
+  ],
+  [
+   56.12,
+   57.93,
+   "Happiness, health, success!"
+  ]
+ ],
+ "heads": [
+  {
+   "from": 0,
+   "to": 2.35,
+   "y": 245,
+   "hideWord": true,
+   "html": "WHY ALL BOTTLES<span class=sub>look the same?</span>"
+  },
+  {
+   "from": 8.64,
+   "to": 12.1,
+   "y": 245,
+   "html": "ADS FOR BRANDS"
+  },
+  {
+   "from": 24.5,
+   "to": 27.3,
+   "y": 245,
+   "html": "3D “REAL QUICK”"
+  },
+  {
+   "from": 27.38,
+   "to": 28.25,
+   "y": 245,
+   "html": "I WAS WRONG"
+  },
+  {
+   "from": 28.3,
+   "to": 31.0,
+   "y": 245,
+   "html": "6 HOURS<span class=sub>dropped out of life</span>"
+  },
+  {
+   "from": 36.4,
+   "to": 39.15,
+   "y": 245,
+   "html": "A MILLION ATTEMPTS"
+  },
+  {
+   "from": 39.25,
+   "to": 41.65,
+   "y": 245,
+   "html": "AI TEXTURE"
+  },
+  {
+   "from": 51.3,
+   "to": 53.0,
+   "y": 245,
+   "html": "FINAL RESULT"
+  },
+  {
+   "from": 53.0,
+   "to": 54.05,
+   "y": 245,
+   "html": "WHAT DO YOU THINK?"
+  }
+ ]
+}
