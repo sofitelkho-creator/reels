@@ -52,6 +52,8 @@ async function setup(plan) {
   // цвет акцента и субтитров: жёлтый — визовый аккаунт, у других аккаунтов свой
   if (plan.accent) document.documentElement.style.setProperty('--y', plan.accent);
   if (plan.stroke) document.body.classList.add('stroke');
+  // субтитры фразами (перевод): перенос строк внутри заданной ширины
+  if (plan.captionWidth) Object.assign($('#word').style, { whiteSpace: 'normal', width: plan.captionWidth + 'px', textAlign: 'center', lineHeight: '1.15' });
   // отступ крупных фраз от краёв: шире — фраза мельче, но не заходит в углы под интерфейс Instagram
   const hm = plan.headMargin || 60;
   if (plan.flag) $('#flag').src = plan.flag;
