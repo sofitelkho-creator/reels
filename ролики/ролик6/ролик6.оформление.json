@@ -1,0 +1,41 @@
+{
+ "fix": {"ип": "ИП", "все": "всё", "вернешься": "вернёшься", "разберем": "разберём", "блин": "блин…"},
+ "heads": [
+  {"from": 0, "to": 5.3, "y": 250, "html": "ВИЗА <span class=a>САМОЗАНЯТОЙ</span><span class=sub>«устройтесь официально»</span>"},
+  {"from": 5.32, "to": 11.4, "y": 250, "html": "КАК БУДТО <span class=a>НЕНАСТОЯЩАЯ</span>"},
+  {"from": 12.66, "to": 14.4, "y": 250, "html": "ВИЗУ <span class=a>НЕ ВИДАТЬ</span>?"},
+  {"from": 14.45, "to": 15.0, "y": 250, "html": "ЭТО <span class=a>МИФ</span>"},
+  {"from": 21.64, "to": 25.2, "y": 250, "html": "ЛЕГАЛЬНЫЙ <span class=a>СТАТУС</span>"},
+  {"from": 31.15, "to": 34.2, "y": 250, "html": "ОТКАЗ <span class=a>НЕ ИЗ-ЗА СТАТУСА</span>"},
+  {"from": 34.24, "to": 35.7, "y": 250, "cta": true, "html": "НАПИШИ <span class=a>НАМ</span>"}
+ ],
+ "screens": [
+  {"from": 15.03, "to": 21.6, "pip": {"w": 560, "h": 620, "y": 200},
+   "items": [
+    {"at": 15.1, "html": "консулу всё равно:", "y": 870},
+    {"at": 15.93, "html": "найм · ИП · самозанятость", "y": 940},
+    {"at": 18.2, "html": "ему важны 2 вещи", "y": 1030},
+    {"at": 20.0, "big": true, "html": "<span style='color:#fff'>1.</span> стабильный доход", "y": 1100, "size": 72},
+    {"at": 21.06, "big": true, "html": "<span style='color:#fff'>2.</span> ты вернёшься", "y": 1210, "size": 72}
+   ]},
+  {"from": 25.25, "to": 31.1, "pip": {"w": 560, "h": 620, "y": 200},
+   "items": [
+    {"at": 25.4, "html": "где самозанятые сливаются", "y": 870},
+    {"at": 26.67, "big": true, "html": "<span style='color:#fff'>×</span> доход не виден", "y": 950, "size": 72},
+    {"at": 28.42, "big": true, "html": "<span style='color:#fff'>×</span> деньги куда попало", "y": 1060, "size": 72},
+    {"at": 29.84, "big": true, "html": "<span style='color:#fff'>×</span> неясно, откуда", "y": 1170, "size": 72}
+   ]},
+  {"from": 35.73, "to": 39.9, "pip": {"w": 560, "h": 620, "y": 200},
+   "items": [
+    {"at": 35.8, "html": "мы поможем", "y": 870},
+    {"at": 35.8, "big": true, "html": "<span style='color:#fff'>✓</span> документы", "y": 950, "size": 72},
+    {"at": 36.9, "big": true, "html": "<span style='color:#fff'>✓</span> понятно консулу", "y": 1060, "size": 72},
+    {"at": 38.45, "big": true, "html": "<span style='color:#fff'>✓</span> шансы выше", "y": 1170, "size": 72}
+   ]},
+  {"from": 39.94, "to": 40.8, "pip": {"w": 560, "h": 620, "y": 200},
+   "items": [
+    {"at": 39.96, "img": "../../картинки/профиль.png", "w": 760, "y": 960},
+    {"at": 40.0, "html": "<span style='font:400 96px Cartoon;color:#EAFC00;-webkit-text-stroke:6px #1a1a1a;paint-order:stroke fill'>подпишись</span>", "y": 1330}
+   ]}
+ ]
+}
