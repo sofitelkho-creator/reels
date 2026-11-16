@@ -105,6 +105,8 @@ function draw(t, src) {
   // фон экрана: тёмный или смена фото (затемнены, чтобы текст читался)
   const bg = inScreen && inScreen.bgs ? inScreen.bgs.filter(b => t >= b.at).pop() : null;
   $('#screen').style.backgroundImage = bg ? `linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.6)),url("${bg.img}")` : 'none';
+  // dim — тёмная плашка с просвечивающим видео (0.8 = почти тёмная), вместо глухого чёрного
+  $('#screen').style.backgroundColor = inScreen && inScreen.dim ? `rgba(12,12,12,${inScreen.dim})` : '';
   if (inScreen) {
     // окно со спикером: из полного кадра сжимается в скруглённое окно сверху
     const w = 1080 - (1080 - inScreen.pip.w) * scr, h = 1920 - (1920 - inScreen.pip.h) * scr;
