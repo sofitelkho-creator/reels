@@ -113,6 +113,8 @@ function draw(t, src) {
     const x = (1080 - w) / 2, y = inScreen.pip.y * scr;
     Object.assign($('#pip').style, { left: x + 'px', top: y + 'px', width: w + 'px', height: h + 'px', borderRadius: 44 * scr + 'px' });
   }
+  // без окна спикера (voiceover) — карточка просто плавно проявляется поверх видео, без сжимающейся рамки
+  $('#pip').style.display = inScreen && !inScreen.pip.w ? 'none' : '';
   // мелкий субтитр: текущее слово
   const w = P.words.find(w => t >= w.s && t < w.e);
   const word = $('#word');
