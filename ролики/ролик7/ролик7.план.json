@@ -995,92 +995,92 @@
   {
    "from": 0,
    "to": 2.33,
-   "y": 250,
+   "y": 720,
    "hideWord": true,
    "html": "ХОЧЕШЬ ЖИТЬ В <span class=a>КОРЕЕ</span>?<span class=sub>без корейского работодателя</span>"
   },
   {
    "from": 2.36,
    "to": 4.66,
-   "y": 250,
+   "y": 720,
    "html": "<span class=a>ЛЕГАЛЬНО</span> ДО 3 ЛЕТ"
   },
   {
    "from": 4.7,
    "to": 7.6,
-   "y": 250,
+   "y": 720,
    "html": "ТОЛЬКО <span class=a>2 СПОСОБА</span>?"
   },
   {
    "from": 7.68,
    "to": 9.85,
-   "y": 250,
+   "y": 720,
    "html": "УЧЁБА ИЛИ <span class=a>РАБОТА</span>"
   },
   {
    "from": 9.9,
    "to": 12.95,
-   "y": 250,
+   "y": 720,
    "html": "<span class=a>7 КРУГОВ</span> АДА"
   },
   {
    "from": 13.03,
    "to": 15.3,
-   "y": 250,
+   "y": 720,
    "html": "ВИЗА <span class=a>ЦИФРОВОГО КОЧЕВНИКА</span>"
   },
   {
    "from": 15.34,
    "to": 18.5,
-   "y": 250,
+   "y": 720,
    "html": "РАБОТА ТАМ, <span class=a>ЖИВЁШЬ ТУТ</span>"
   },
   {
    "from": 18.57,
    "to": 21.45,
-   "y": 250,
+   "y": 720,
    "html": "ТЕПЕРЬ <span class=a>ПОСТОЯННАЯ</span>"
   },
   {
    "from": 36.65,
    "to": 37.33,
-   "y": 250,
+   "y": 720,
    "html": "<span class=a>ЛАЙФХАК</span>"
   },
   {
    "from": 37.36,
    "to": 40.85,
-   "y": 250,
+   "y": 720,
    "html": "НЕ СЕУЛ, А <span class=a>ПУСАН · ЧЕДЖУ</span>"
   },
   {
    "from": 40.87,
    "to": 42.27,
-   "y": 250,
+   "y": 720,
    "html": "НЕ СЕУЛ = <span class=a>ПОРОГ НИЖЕ</span>"
   },
   {
    "from": 42.29,
    "to": 45.28,
-   "y": 250,
+   "y": 720,
    "html": "ДО 35 — <span class=a>ЕЩЁ НИЖЕ</span>"
   },
   {
    "from": 45.31,
    "to": 46.03,
-   "y": 250,
+   "y": 720,
    "html": "НО ЕСТЬ <span class=a>ПОДВОХ</span>"
   },
   {
    "from": 46.06,
    "to": 48.36,
-   "y": 250,
+   "y": 720,
    "html": "<span class=a>НЕЛЬЗЯ</span> НА КОРЕЙСКУЮ КОМПАНИЮ"
   },
   {
    "from": 48.38,
    "to": 51.1,
-   "y": 250,
+   "y": 720,
    "html": "СЕУЛ → <span class=a>ПОЛГОДА</span>"
   }
  ],
@@ -1241,12 +1241,15 @@
  "flag": null,
  "wordPos": [
   540,
-  1400
+  1220
  ],
  "accent": null,
  "stroke": true,
  "headMargin": 90,
  "captionWidth": null,
+ "wordSize": 78,
+ "headSize": 130,
+ "headWrap": true,
  "wordPosScreen": [
   540,
   1420

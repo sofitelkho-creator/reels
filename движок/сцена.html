@@ -53,6 +53,8 @@ async function setup(plan) {
   if (plan.accent) document.documentElement.style.setProperty('--y', plan.accent);
   if (plan.stroke) document.body.classList.add('stroke');
   // субтитры фразами (перевод): перенос строк внутри заданной ширины
+  // размеры текста: для voiceover субтитры и фразы крупнее
+  if (plan.wordSize) $('#word').style.fontSize = plan.wordSize + 'px';
   if (plan.captionWidth) Object.assign($('#word').style, { whiteSpace: 'normal', width: plan.captionWidth + 'px', textAlign: 'center', lineHeight: '1.15' });
   // отступ крупных фраз от краёв: шире — фраза мельче, но не заходит в углы под интерфейс Instagram
   const hm = plan.headMargin || 60;
@@ -65,7 +67,9 @@ async function setup(plan) {
   // крупная фраза — в одну строку: вторая строка налезла бы на голову; не влезает — уменьшаем шрифт
   await document.fonts.ready;
   document.querySelectorAll('.head').forEach(d => {
-    let fs = 124;
+    let fs = plan.headSize || 124; d.style.fontSize = fs + 'px';
+    // voiceover: лица в кадре нет — длинная фраза переносится на 2 строки, а не мельчает
+    if (plan.headWrap) { d.style.whiteSpace = 'normal'; return; }
     while (d.scrollWidth > d.clientWidth && fs > 56) { fs -= 4; d.style.fontSize = fs + 'px'; }
   });
   // фото-фоны загружаем заранее, иначе первый кадр со сменой фона выйдет пустым
