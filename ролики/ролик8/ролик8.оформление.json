@@ -47,16 +47,16 @@
   {
    "from": 0.03,
    "to": 2.7,
-   "anim": "wipe",
+   "anim": "blur",
    "behind": true,
-   "html": "<div class=band style='top:360px;height:330px'></div><div class=lbl style='left:90px;top:390px;font-size:60px;line-height:1.05'><span class=k>отказали</span><br><span class=hl>в визе?</span></div>"
+   "html": "<div class=lbl style='left:80px;right:80px;text-align:center;top:380px;font-size:84px;line-height:1.02'><span class=w>отказали</span><br><span class=y>в визе?</span></div>"
   },
   {
    "from": 2.76,
    "to": 5.6,
-   "anim": "wipe",
+   "anim": "blur",
    "behind": true,
-   "html": "<div class=band style='top:360px;height:330px'></div><div class=lbl style='left:90px;top:390px;font-size:60px;line-height:1.05'><span class=k>всё собрала —</span><br><span class=hl>и отказ</span></div>"
+   "html": "<div class=lbl style='left:80px;right:80px;text-align:center;top:380px;font-size:84px;line-height:1.02'><span class=w>всё собрала —</span><br><span class=y>и отказ</span></div>"
   },
   {
    "from": 5.67,
@@ -68,100 +68,117 @@
   {
    "from": 9.42,
    "to": 11.2,
-   "anim": "wipe",
+   "anim": "blur",
    "behind": true,
-   "html": "<div class=band style='top:360px;height:330px'></div><div class=lbl style='left:90px;top:390px;font-size:60px;line-height:1.05'><span class=k>это</span><br><span class=hl>навсегда?</span></div>"
+   "html": "<div class=lbl style='left:80px;right:80px;text-align:center;top:380px;font-size:84px;line-height:1.02'><span class=w>это</span><br><span class=y>навсегда?</span></div>"
   },
   {
    "from": 11.27,
    "to": 13.0,
-   "anim": "wipe",
+   "anim": "blur",
    "behind": true,
-   "html": "<div class=band style='top:360px;height:330px'></div><div class=lbl style='left:90px;top:390px;font-size:60px;line-height:1.05'><span class=k>подаваться снова</span><br><span class=hl>страшно</span></div>"
+   "html": "<div class=lbl style='left:80px;right:80px;text-align:center;top:380px;font-size:72px;line-height:1.02'><span class=w>подаваться снова</span><br><span class=y>страшно</span></div>"
   },
   {
    "from": 13.05,
    "to": 17.1,
-   "anim": "wipe",
-   "behind": true,
-   "html": "<div class=band style='top:360px;height:330px'></div><div class=lbl style='left:90px;top:390px;font-size:60px;line-height:1.05'><span class=k>шенген:</span><br><span class=hl>причину</span><br><span class=k>отметят галочкой</span></div>"
+   "anim": "kb",
+   "html": "<img class=full src='file:///home/user/reels/картинки/дубай/шенген.png'>"
+  },
+  {
+   "from": 13.05,
+   "to": 17.1,
+   "anim": "blur",
+   "behind": false,
+   "html": "<div class=lbl style='left:80px;right:80px;text-align:center;top:380px;font-size:74px;line-height:1.02'><span class=w>шенген:</span><br><span class=y>причину отметят</span></div>"
   },
   {
    "from": 17.2,
    "to": 18.95,
-   "anim": "wipe",
+   "anim": "pop",
    "behind": true,
-   "html": "<div class=band style='top:360px;height:330px'></div><div class=num style='left:60px;top:370px;font-size:300px;color:#111;letter-spacing:-10px'>1</div><div class=lbl style='left:300px;top:390px;font-size:58px;line-height:1.05'><span class=k>не хватило</span><br><span class=hl>денег</span></div>"
+   "html": "<div class=num style='left:70px;top:330px;font-size:330px;letter-spacing:-10px'>1</div><div class=lbl style='left:340px;top:400px;font-size:62px;line-height:1.05'><span class=w>не хватило</span><br><span class=y>денег</span></div>"
   },
   {
    "from": 19.0,
    "to": 20.3,
-   "anim": "wipe",
+   "anim": "pop",
    "behind": true,
-   "html": "<div class=band style='top:360px;height:330px'></div><div class=num style='left:60px;top:370px;font-size:300px;color:#111;letter-spacing:-10px'>2</div><div class=lbl style='left:300px;top:390px;font-size:58px;line-height:1.05'><span class=k>недостоверная</span><br><span class=hl>информация</span></div>"
+   "html": "<div class=num style='left:70px;top:330px;font-size:330px;letter-spacing:-10px'>2</div><div class=lbl style='left:340px;top:400px;font-size:62px;line-height:1.05'><span class=w>недостоверная</span><br><span class=y>информация</span></div>"
   },
   {
    "from": 20.36,
    "to": 21.3,
-   "anim": "wipe",
+   "anim": "pop",
    "behind": true,
-   "html": "<div class=band style='top:360px;height:330px'></div><div class=num style='left:60px;top:370px;font-size:300px;color:#111;letter-spacing:-10px'>3</div><div class=lbl style='left:300px;top:390px;font-size:58px;line-height:1.05'><span class=k>непонятная</span><br><span class=hl>цель</span></div>"
+   "html": "<div class=num style='left:70px;top:330px;font-size:330px;letter-spacing:-10px'>3</div><div class=lbl style='left:340px;top:400px;font-size:62px;line-height:1.05'><span class=w>непонятная</span><br><span class=y>цель</span></div>"
   },
   {
    "from": 21.38,
    "to": 22.55,
-   "anim": "wipe",
+   "anim": "pop",
    "behind": true,
-   "html": "<div class=band style='top:360px;height:330px'></div><div class=num style='left:60px;top:370px;font-size:300px;color:#111;letter-spacing:-10px'>4</div><div class=lbl style='left:300px;top:390px;font-size:58px;line-height:1.05'><span class=k>сомнение,</span><br><span class=hl>что вернёшься</span></div>"
+   "html": "<div class=num style='left:70px;top:330px;font-size:330px;letter-spacing:-10px'>4</div><div class=lbl style='left:340px;top:400px;font-size:62px;line-height:1.05'><span class=w>сомнение,</span><br><span class=y>что вернёшься</span></div>"
+  },
+  {
+   "from": 22.58,
+   "to": 27.75,
+   "anim": "kb",
+   "html": "<img class=full src='file:///home/user/reels/картинки/сша/аэропорт.png'>"
   },
   {
    "from": 22.58,
    "to": 24.45,
-   "anim": "wipe",
-   "behind": true,
-   "html": "<div class=band style='top:360px;height:330px'></div><div class=lbl style='left:90px;top:390px;font-size:60px;line-height:1.05'><span class=k>а в США —</span><br><span class=hl>один ответ</span></div>"
+   "anim": "blur",
+   "behind": false,
+   "html": "<div class=lbl style='left:80px;right:80px;text-align:center;top:380px;font-size:84px;line-height:1.02'><span class=w>а в США —</span><br><span class=y>один ответ</span></div>"
   },
   {
    "from": 24.5,
    "to": 27.75,
    "anim": "pop",
-   "behind": true,
-   "html": "<div class=num style='left:0;right:0;text-align:center;top:290px;font-size:190px;letter-spacing:-6px'>214(b)</div><div class=lbl style='left:0;right:0;text-align:center;top:460px;font-size:46px'>не доказали,<br><span class=y>что вернётесь домой</span></div>"
+   "html": "<div class=num style='left:0;right:0;text-align:center;top:300px;font-size:200px;letter-spacing:-6px'>214(b)</div><div class=lbl style='left:0;right:0;text-align:center;top:480px;font-size:50px'>не доказали,<br><span class=y>что вернётесь домой</span></div>"
   },
   {
    "from": 27.78,
    "to": 29.1,
-   "anim": "wipe",
+   "anim": "blur",
    "behind": true,
-   "html": "<div class=band style='top:360px;height:330px'></div><div class=lbl style='left:90px;top:390px;font-size:60px;line-height:1.05'><span class=k>и всё —</span><br><span class=hl>без объяснений</span></div>"
+   "html": "<div class=lbl style='left:80px;right:80px;text-align:center;top:380px;font-size:84px;line-height:1.02'><span class=w>и всё —</span><br><span class=y>без объяснений</span></div>"
   },
   {
    "from": 29.16,
    "to": 30.45,
-   "anim": "wipe",
+   "anim": "blur",
    "behind": true,
-   "html": "<div class=band style='top:360px;height:330px'></div><div class=lbl style='left:90px;top:390px;font-size:60px;line-height:1.05'><span class=k>отказ —</span><br><span class=hl>не приговор</span></div>"
+   "html": "<div class=lbl style='left:80px;right:80px;text-align:center;top:380px;font-size:84px;line-height:1.02'><span class=w>отказ —</span><br><span class=y>не приговор</span></div>"
   },
   {
    "from": 30.5,
    "to": 33.6,
-   "anim": "wipe",
+   "anim": "blur",
    "behind": true,
-   "html": "<div class=band style='top:360px;height:330px'></div><div class=lbl style='left:90px;top:390px;font-size:60px;line-height:1.05'><span class=k>хуже всего:</span><br><span class=hl>те же документы</span><br><span class=k>во второй раз</span></div>"
+   "html": "<div class=lbl style='left:70px;right:70px;text-align:center;top:360px;font-size:64px;line-height:1.02'><span class=w>хуже всего —</span><br><span class=y>те же документы</span></div>"
+  },
+  {
+   "from": 33.7,
+   "to": 38.5,
+   "anim": "kb",
+   "html": "<img class=full src='file:///home/user/reels/картинки/дубай/самолёт.png'>"
   },
   {
    "from": 33.7,
    "to": 35.9,
-   "anim": "wipe",
-   "behind": true,
-   "html": "<div class=band style='top:360px;height:330px'></div><div class=lbl style='left:90px;top:390px;font-size:60px;line-height:1.05'><span class=k>пришли нам</span><br><span class=hl>свой отказ</span></div>"
+   "anim": "blur",
+   "behind": false,
+   "html": "<div class=lbl style='left:80px;right:80px;text-align:center;top:380px;font-size:84px;line-height:1.02'><span class=w>пришли нам</span><br><span class=y>свой отказ</span></div>"
   },
   {
    "from": 35.92,
    "to": 38.5,
-   "anim": "wipe",
-   "behind": true,
-   "html": "<div class=band style='top:360px;height:330px'></div><div class=lbl style='left:90px;top:390px;font-size:60px;line-height:1.05'><span class=k>✓ разберём ошибки</span><br><span class=k>✓ поможем</span><br><span class=hl>с новой подачей</span></div>"
+   "anim": "blur",
+   "behind": false,
+   "html": "<div class=lbl style='left:80px;right:80px;text-align:center;top:380px;font-size:50px;line-height:1.02'><span class=w>✓ разберём ошибки</span><br><span class=y>✓ поможем с подачей</span></div>"
   }
  ],
  "personDir": "спикер"

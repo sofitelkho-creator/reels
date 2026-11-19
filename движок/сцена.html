@@ -46,6 +46,7 @@ body.wide .big,body.wide .cap{font-family:Wide;text-transform:uppercase;letter-s
 .ov .band{position:absolute;left:0;right:0;background:#fff}
 .ov .w{color:#fff}.ov .y{color:var(--y)}.ov .k{color:#111}
 .ov .hl{background:var(--y);color:#111;padding:0 12px}
+.ov .full{position:absolute;inset:0;width:1080px;height:1920px;object-fit:cover}
 </style></head>
 <body><div id="stage">
 <img id="frame">
@@ -121,6 +122,9 @@ function draw(t, src, psrc) {
   (P.overlays || []).forEach((o, i) => {
     const k = inOut(t, o.from, o.to, .3, .2), d = $('#o' + i);
     d.style.opacity = k ? Math.min(1, k * 1.5) : 0;
+    // kb — полноэкранная картинка-перебивка: плавно проявляется и медленно наезжает (как стоковые вставки в референсе)
+    if (o.anim === 'kb') { d.style.opacity = k ? Math.min(1, k * 1.5) : 0; const im = d.querySelector('img');
+      if (im) im.style.transform = `scale(${1.02 + .08 * clamp((t - o.from) / (o.to - o.from))})`; return; }
     if (o.anim === 'wipe') { d.style.clipPath = `inset(0 ${(1 - k) * 100}% 0 0)`; d.style.opacity = k ? 1 : 0; }
     else if (o.anim === 'pop') d.style.transform = `scale(${.7 + .3 * ease(k)})`;
     else { d.style.filter = `blur(${(1 - k) * 14}px)`; d.style.transform = `translateY(${(1 - k) * 30}px)`; }
