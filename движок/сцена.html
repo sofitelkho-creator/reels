@@ -3,6 +3,9 @@
 <style>
 @font-face{font-family:Soyuz;src:url(../шрифты/SoyuzGrotesk-Bold.ttf)}
 @font-face{font-family:Cartoon;src:url(../шрифты/MediocreCartoon-Regular.ttf)}
+/* широкий жирный гротеск для стиля «как в референсе 4»: кириллица + латиница с цифрами */
+@font-face{font-family:Wide;src:url(../шрифты/Unbounded-Black-cyrillic.woff2)}
+@font-face{font-family:Wide;src:url(../шрифты/Unbounded-Black-latin.woff2);unicode-range:U+0000-00FF,U+2010-2027}
 :root{--y:#EAFC00;--bg:#0f0f0f}
 html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#000}
 #stage{position:absolute;inset:0;overflow:hidden}
@@ -29,6 +32,20 @@ body.stroke #word,body.stroke .head{-webkit-text-stroke:6px rgba(0,0,0,.7);paint
   -webkit-mask-image:linear-gradient(#000 55%,transparent);mask-image:linear-gradient(#000 55%,transparent)}
 .big{position:absolute;left:0;right:0;text-align:center;font:400 150px/1 Soyuz;color:var(--y);opacity:0;text-shadow:0 4px 20px rgba(0,0,0,.7)}
 .cap{position:absolute;left:60px;right:60px;text-align:center;font:400 46px/1.2 Soyuz;color:#fff;opacity:0;text-shadow:0 3px 12px rgba(0,0,0,.7)}
+/* стиль wide: всё набрано Unbounded заглавными, субтитры мелкие с тёмным контуром */
+body.wide .head{font-family:Wide;letter-spacing:-2px;line-height:.98;-webkit-text-stroke:5px rgba(0,0,0,.55);paint-order:stroke fill;text-shadow:0 4px 26px rgba(0,0,0,.55)}
+/* надписи поверх видео (не на белой полосе) — с тёмным контуром, чтобы читались на светлой лампе */
+.ov .lbl .w,.ov .lbl .y,.ov>.lbl:not(:has(.k)),.ov .num:not([style*='#111']){-webkit-text-stroke:5px rgba(0,0,0,.5);paint-order:stroke fill}
+body.wide .head .sub{font-family:Wide;text-transform:uppercase;letter-spacing:-1px}
+body.wide #word{font-family:Wide;text-transform:uppercase;letter-spacing:-1px;-webkit-text-stroke:5px #111;paint-order:stroke fill}
+body.wide .big,body.wide .cap{font-family:Wide;text-transform:uppercase;letter-spacing:-1px}
+/* свободные надписи (overlays): огромная цифра с подписью, белая полоса с номером */
+.ov{position:absolute;inset:0;opacity:0;font-family:Wide;text-transform:uppercase}
+.ov .num{position:absolute;font-size:540px;line-height:.78;color:var(--y);letter-spacing:-20px;text-shadow:0 8px 40px rgba(0,0,0,.35)}
+.ov .lbl{position:absolute;font-size:62px;line-height:1.02;color:#fff;letter-spacing:-2px;text-shadow:0 4px 18px rgba(0,0,0,.5)}
+.ov .band{position:absolute;left:0;right:0;background:#fff}
+.ov .w{color:#fff}.ov .y{color:var(--y)}.ov .k{color:#111}
+.ov .hl{background:var(--y);color:#111;padding:0 12px}
 </style></head>
 <body><div id="stage">
 <img id="frame">
@@ -52,6 +69,7 @@ async function setup(plan) {
   // цвет акцента и субтитров: жёлтый — визовый аккаунт, у других аккаунтов свой
   if (plan.accent) document.documentElement.style.setProperty('--y', plan.accent);
   if (plan.stroke) document.body.classList.add('stroke');
+  if (plan.wide) document.body.classList.add('wide');
   // субтитры фразами (перевод): перенос строк внутри заданной ширины
   // размеры текста: для voiceover субтитры и фразы крупнее
   if (plan.wordSize) $('#word').style.fontSize = plan.wordSize + 'px';
@@ -63,6 +81,9 @@ async function setup(plan) {
   plan.heads.forEach((h, i) => {
     const d = document.createElement('div'); d.className = 'head' + (h.cta ? ' cta' : ''); d.id = 'h' + i; d.style.top = h.y + 'px'; d.style.left = d.style.right = hm + 'px';
     d.innerHTML = h.html; L.appendChild(d);
+  });
+  (plan.overlays || []).forEach((o, i) => {
+    const d = document.createElement('div'); d.className = 'ov'; d.id = 'o' + i; d.innerHTML = o.html; L.appendChild(d);
   });
   // крупная фраза — в одну строку: вторая строка налезла бы на голову; не влезает — уменьшаем шрифт
   await document.fonts.ready;
@@ -90,6 +111,14 @@ function draw(t, src) {
   P.heads.forEach((h, i) => {
     const k = inOut(t, h.from, h.to), d = $('#h' + i);
     d.style.opacity = k; d.style.filter = `blur(${(1 - k) * 14}px)`; d.style.transform = `translateY(${(1 - k) * 30}px) scale(${.94 + .06 * k})`;
+  });
+  // свободные надписи: blur — из размытия (как фразы), wipe — выезжает слева направо (полосы), pop — растёт из 70 %
+  (P.overlays || []).forEach((o, i) => {
+    const k = inOut(t, o.from, o.to, .3, .2), d = $('#o' + i);
+    d.style.opacity = k ? Math.min(1, k * 1.5) : 0;
+    if (o.anim === 'wipe') { d.style.clipPath = `inset(0 ${(1 - k) * 100}% 0 0)`; d.style.opacity = k ? 1 : 0; }
+    else if (o.anim === 'pop') d.style.transform = `scale(${.7 + .3 * ease(k)})`;
+    else { d.style.filter = `blur(${(1 - k) * 14}px)`; d.style.transform = `translateY(${(1 - k) * 30}px)`; }
   });
   // экран-инфографика
   let scr = 0, inScreen = null;

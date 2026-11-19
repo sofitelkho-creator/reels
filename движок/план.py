@@ -34,6 +34,6 @@ for s in S.get("screens", []):
         b["img"] = url(b["img"])
 plan = {"words": words, "heads": S.get("heads", []), "screens": S.get("screens", []), "intro": S.get("intro", [0, 0]),
         "flag": url(S["flag"]) if S.get("flag") else None,
-        "wordPos": S.get("wordPos", [300, 1320]), "accent": S.get("accent"), "stroke": S.get("stroke", False), "headMargin": S.get("headMargin", 60), "captionWidth": S.get("captionWidth"), "wordSize": S.get("wordSize"), "headSize": S.get("headSize"), "headWrap": S.get("headWrap", False), "wordPosScreen": S.get("wordPosScreen", [540, 790])}
+        "wordPos": S.get("wordPos", [300, 1320]), "accent": S.get("accent"), "stroke": S.get("stroke", False), "headMargin": S.get("headMargin", 60), "captionWidth": S.get("captionWidth"), "wordSize": S.get("wordSize"), "headSize": S.get("headSize"), "headWrap": S.get("headWrap", False), "wide": S.get("wide", False), "overlays": S.get("overlays", []), "wordPosScreen": S.get("wordPosScreen", [540, 790])}
 json.dump(plan, open(out, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print(f"слов: {len(words)}, фраз: {len(plan['heads'])}, экранов: {len(plan['screens'])} → {out}")
