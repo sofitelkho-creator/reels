@@ -51,6 +51,8 @@ body.wide .big,body.wide .cap{font-family:Wide;text-transform:uppercase;letter-s
 <img id="frame">
 <img id="flag">
 <div id="screen"><div id="pip"><img id="pipimg"></div></div>
+<div id="behind"></div>
+<img id="person" style="position:absolute;left:0;top:0;width:1080px;height:1920px;display:none">
 <div id="layer"></div>
 <div id="word"></div>
 </div>
@@ -83,7 +85,9 @@ async function setup(plan) {
     d.innerHTML = h.html; L.appendChild(d);
   });
   (plan.overlays || []).forEach((o, i) => {
-    const d = document.createElement('div'); d.className = 'ov'; d.id = 'o' + i; d.innerHTML = o.html; L.appendChild(d);
+    const d = document.createElement('div'); d.className = 'ov'; d.id = 'o' + i; d.innerHTML = o.html;
+    // behind — надпись «за человеком»: поверх неё кладётся вырезанный спикер
+    (o.behind ? $('#behind') : L).appendChild(d);
   });
   // крупная фраза — в одну строку: вторая строка налезла бы на голову; не влезает — уменьшаем шрифт
   await document.fonts.ready;
@@ -104,8 +108,9 @@ async function setup(plan) {
     d.style.top = it.y + 'px'; L.appendChild(d);
   }));
 }
-function draw(t, src) {
+function draw(t, src, psrc) {
   $('#frame').src = src; $('#pipimg').src = src;
+  const pe = $('#person'); if (psrc) { pe.src = psrc; pe.style.display = ''; } else pe.style.display = 'none';
   // флаг-шапка в заставке
   $('#flag').style.opacity = P.flag ? inOut(t, P.intro[0], P.intro[1], .4, .4) : 0;
   P.heads.forEach((h, i) => {

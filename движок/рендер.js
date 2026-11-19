@@ -21,10 +21,13 @@ const frames = fs.readdirSync(src).filter(f => f.endsWith('.jpg')).sort();
   await page.evaluate(() => document.fonts.ready);
   for (let i = 0; i < frames.length; i++) {
     const t = from + i / FPS;
-    await page.evaluate(async ([t, s]) => {
-      draw(t, s);
+    // кадр с вырезанным спикером (если есть) — для надписей «за человеком»
+    const pf = plan.personDir && path.join(plan.personDir, String(Math.round(t * FPS)).padStart(5, '0') + '.webp');
+    const ps = pf && fs.existsSync(pf) ? 'file://' + pf : '';
+    await page.evaluate(async ([t, s, ps]) => {
+      draw(t, s, ps);
       await Promise.all([...document.images].filter(im => im.src).map(im => im.decode().catch(() => {})));
-    }, [t, 'file://' + path.join(src, frames[i])]);
+    }, [t, 'file://' + path.join(src, frames[i]), ps]);
     await page.screenshot({ path: path.join(dst, frames[i]), type: 'jpeg', quality: 92 });
     if (i % 150 === 0) console.log(`кадр ${i}/${frames.length}`);
   }

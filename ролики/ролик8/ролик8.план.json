@@ -673,54 +673,6 @@
  ],
  "heads": [
   {
-   "from": 0.03,
-   "to": 2.7,
-   "y": 340,
-   "html": "<span style='color:#fff'>отказали</span><br><span class=a>в визе?</span>"
-  },
-  {
-   "from": 2.76,
-   "to": 5.6,
-   "y": 340,
-   "html": "<span style='color:#fff'>всё собрала</span><br><span class=a>и отказ</span>"
-  },
-  {
-   "from": 9.42,
-   "to": 11.2,
-   "y": 340,
-   "html": "<span style='color:#fff'>это</span><br><span class=a>навсегда?</span>"
-  },
-  {
-   "from": 11.27,
-   "to": 13.0,
-   "y": 340,
-   "html": "<span style='color:#fff'>подаваться снова</span><br><span class=a>страшно</span>"
-  },
-  {
-   "from": 22.58,
-   "to": 24.45,
-   "y": 340,
-   "html": "<span style='color:#fff'>а в США —</span><br><span class=a>один ответ</span>"
-  },
-  {
-   "from": 27.78,
-   "to": 29.1,
-   "y": 340,
-   "html": "<span style='color:#fff'>и всё</span><br><span class=a>без объяснений</span>"
-  },
-  {
-   "from": 29.16,
-   "to": 30.45,
-   "y": 340,
-   "html": "<span style='color:#fff'>отказ —</span><br><span class=a>не приговор</span>"
-  },
-  {
-   "from": 33.7,
-   "to": 35.9,
-   "y": 340,
-   "html": "<span style='color:#fff'>пришли нам</span><br><span class=a>свой отказ</span>"
-  },
-  {
    "from": 38.57,
    "to": 40.9,
    "y": 340,
@@ -746,60 +698,126 @@
  "headSize": 84,
  "headWrap": true,
  "wide": true,
+ "personDir": "/home/user/reels/ролики/ролик8/спикер",
  "overlays": [
+  {
+   "from": 0.03,
+   "to": 2.7,
+   "anim": "wipe",
+   "behind": true,
+   "html": "<div class=band style='top:360px;height:330px'></div><div class=lbl style='left:90px;top:390px;font-size:60px;line-height:1.05'><span class=k>отказали</span><br><span class=hl>в визе?</span></div>"
+  },
+  {
+   "from": 2.76,
+   "to": 5.6,
+   "anim": "wipe",
+   "behind": true,
+   "html": "<div class=band style='top:360px;height:330px'></div><div class=lbl style='left:90px;top:390px;font-size:60px;line-height:1.05'><span class=k>всё собрала —</span><br><span class=hl>и отказ</span></div>"
+  },
   {
    "from": 5.67,
    "to": 9.38,
    "anim": "pop",
-   "html": "<div class=num style='left:100px;top:260px'>2</div><div class=lbl style='left:520px;top:340px'>минуты<br><span class=y>и визы</span><br>нет</div>"
+   "behind": true,
+   "html": "<div class=num style='left:90px;top:300px'>2</div><div class=lbl style='left:520px;top:390px'>минуты<br><span class=y>и визы</span><br>нет</div>"
+  },
+  {
+   "from": 9.42,
+   "to": 11.2,
+   "anim": "wipe",
+   "behind": true,
+   "html": "<div class=band style='top:360px;height:330px'></div><div class=lbl style='left:90px;top:390px;font-size:60px;line-height:1.05'><span class=k>это</span><br><span class=hl>навсегда?</span></div>"
+  },
+  {
+   "from": 11.27,
+   "to": 13.0,
+   "anim": "wipe",
+   "behind": true,
+   "html": "<div class=band style='top:360px;height:330px'></div><div class=lbl style='left:90px;top:390px;font-size:60px;line-height:1.05'><span class=k>подаваться снова</span><br><span class=hl>страшно</span></div>"
   },
   {
    "from": 13.05,
    "to": 17.1,
    "anim": "wipe",
-   "html": "<div class=band style='top:300px;height:360px'></div><div class=lbl style='left:100px;top:345px;font-size:66px'><span class=k>шенген:</span><br><span class=hl>причину</span><br><span class=k>отметят галочкой</span></div>"
+   "behind": true,
+   "html": "<div class=band style='top:360px;height:330px'></div><div class=lbl style='left:90px;top:390px;font-size:60px;line-height:1.05'><span class=k>шенген:</span><br><span class=hl>причину</span><br><span class=k>отметят галочкой</span></div>"
   },
   {
    "from": 17.2,
    "to": 18.95,
    "anim": "wipe",
-   "html": "<div class=band style='top:300px;height:360px'></div><div class=num style='left:60px;top:315px;font-size:400px;color:#111'>1</div><div class=lbl style='left:330px;top:410px'><span class=k>не хватило</span><br><span class=hl>денег</span></div>"
+   "behind": true,
+   "html": "<div class=band style='top:360px;height:330px'></div><div class=num style='left:60px;top:370px;font-size:300px;color:#111;letter-spacing:-10px'>1</div><div class=lbl style='left:300px;top:390px;font-size:58px;line-height:1.05'><span class=k>не хватило</span><br><span class=hl>денег</span></div>"
   },
   {
    "from": 19.0,
    "to": 20.3,
    "anim": "wipe",
-   "html": "<div class=band style='top:300px;height:360px'></div><div class=num style='left:40px;top:315px;font-size:400px;color:#111'>2</div><div class=lbl style='left:330px;top:410px'><span class=k>недостоверная</span><br><span class=hl>информация</span></div>"
+   "behind": true,
+   "html": "<div class=band style='top:360px;height:330px'></div><div class=num style='left:60px;top:370px;font-size:300px;color:#111;letter-spacing:-10px'>2</div><div class=lbl style='left:300px;top:390px;font-size:58px;line-height:1.05'><span class=k>недостоверная</span><br><span class=hl>информация</span></div>"
   },
   {
    "from": 20.36,
    "to": 21.3,
    "anim": "wipe",
-   "html": "<div class=band style='top:300px;height:360px'></div><div class=num style='left:40px;top:315px;font-size:400px;color:#111'>3</div><div class=lbl style='left:330px;top:410px'><span class=k>непонятная</span><br><span class=hl>цель</span></div>"
+   "behind": true,
+   "html": "<div class=band style='top:360px;height:330px'></div><div class=num style='left:60px;top:370px;font-size:300px;color:#111;letter-spacing:-10px'>3</div><div class=lbl style='left:300px;top:390px;font-size:58px;line-height:1.05'><span class=k>непонятная</span><br><span class=hl>цель</span></div>"
   },
   {
    "from": 21.38,
    "to": 22.55,
    "anim": "wipe",
-   "html": "<div class=band style='top:300px;height:360px'></div><div class=num style='left:40px;top:315px;font-size:400px;color:#111'>4</div><div class=lbl style='left:330px;top:410px'><span class=k>сомнение,</span><br><span class=hl>что вернёшься</span></div>"
+   "behind": true,
+   "html": "<div class=band style='top:360px;height:330px'></div><div class=num style='left:60px;top:370px;font-size:300px;color:#111;letter-spacing:-10px'>4</div><div class=lbl style='left:300px;top:390px;font-size:58px;line-height:1.05'><span class=k>сомнение,</span><br><span class=hl>что вернёшься</span></div>"
+  },
+  {
+   "from": 22.58,
+   "to": 24.45,
+   "anim": "wipe",
+   "behind": true,
+   "html": "<div class=band style='top:360px;height:330px'></div><div class=lbl style='left:90px;top:390px;font-size:60px;line-height:1.05'><span class=k>а в США —</span><br><span class=hl>один ответ</span></div>"
   },
   {
    "from": 24.5,
    "to": 27.75,
    "anim": "pop",
-   "html": "<div class=num style='left:0;right:0;text-align:center;top:300px;font-size:210px;letter-spacing:-6px'>214(b)</div><div class=lbl style='left:0;right:0;text-align:center;top:510px;font-size:52px'>не доказали,<br><span class=y>что вернётесь домой</span></div>"
+   "behind": true,
+   "html": "<div class=num style='left:0;right:0;text-align:center;top:290px;font-size:190px;letter-spacing:-6px'>214(b)</div><div class=lbl style='left:0;right:0;text-align:center;top:460px;font-size:46px'>не доказали,<br><span class=y>что вернётесь домой</span></div>"
+  },
+  {
+   "from": 27.78,
+   "to": 29.1,
+   "anim": "wipe",
+   "behind": true,
+   "html": "<div class=band style='top:360px;height:330px'></div><div class=lbl style='left:90px;top:390px;font-size:60px;line-height:1.05'><span class=k>и всё —</span><br><span class=hl>без объяснений</span></div>"
+  },
+  {
+   "from": 29.16,
+   "to": 30.45,
+   "anim": "wipe",
+   "behind": true,
+   "html": "<div class=band style='top:360px;height:330px'></div><div class=lbl style='left:90px;top:390px;font-size:60px;line-height:1.05'><span class=k>отказ —</span><br><span class=hl>не приговор</span></div>"
   },
   {
    "from": 30.5,
    "to": 33.6,
    "anim": "wipe",
-   "html": "<div class=band style='top:300px;height:360px'></div><div class=lbl style='left:100px;top:345px;font-size:66px'><span class=k>хуже всего:</span><br><span class=hl>те же документы</span><br><span class=k>во второй раз</span></div>"
+   "behind": true,
+   "html": "<div class=band style='top:360px;height:330px'></div><div class=lbl style='left:90px;top:390px;font-size:60px;line-height:1.05'><span class=k>хуже всего:</span><br><span class=hl>те же документы</span><br><span class=k>во второй раз</span></div>"
+  },
+  {
+   "from": 33.7,
+   "to": 35.9,
+   "anim": "wipe",
+   "behind": true,
+   "html": "<div class=band style='top:360px;height:330px'></div><div class=lbl style='left:90px;top:390px;font-size:60px;line-height:1.05'><span class=k>пришли нам</span><br><span class=hl>свой отказ</span></div>"
   },
   {
    "from": 35.92,
    "to": 38.5,
-   "anim": "blur",
-   "html": "<div class=lbl style='left:90px;right:90px;text-align:center;top:350px;font-size:50px;line-height:1.3'>✓ <span class=y>разберём</span> ошибки<br>✓ <span class=y>поможем</span> с подачей</div>"
+   "anim": "wipe",
+   "behind": true,
+   "html": "<div class=band style='top:360px;height:330px'></div><div class=lbl style='left:90px;top:390px;font-size:60px;line-height:1.05'><span class=k>✓ разберём ошибки</span><br><span class=k>✓ поможем</span><br><span class=hl>с новой подачей</span></div>"
   }
  ],
  "wordPosScreen": [
