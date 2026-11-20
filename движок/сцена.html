@@ -122,6 +122,8 @@ function draw(t, src, psrc) {
   (P.overlays || []).forEach((o, i) => {
     const k = inOut(t, o.from, o.to, .3, .2), d = $('#o' + i);
     d.style.opacity = k ? Math.min(1, k * 1.5) : 0;
+    // data-at — часть надписи (строка, подпись) появляется ровно в момент, когда это слово произносят, а не раньше
+    d.querySelectorAll('[data-at]').forEach(e => { const q = ease((t - +e.dataset.at) / .18); e.style.opacity = q; e.style.filter = `blur(${(1 - q) * 8}px)`; });
     // kb — полноэкранная картинка-перебивка: плавно проявляется и медленно наезжает (как стоковые вставки в референсе)
     if (o.anim === 'kb') { d.style.opacity = k ? Math.min(1, k * 1.5) : 0; const im = d.querySelector('img');
       if (im) im.style.transform = `scale(${1.02 + .08 * clamp((t - o.from) / (o.to - o.from))})`; return; }
