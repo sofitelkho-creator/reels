@@ -18,7 +18,7 @@
   "рф": "РФ",
   "еще": "ещё",
   "все": "всё",
-  "реки": "",
+  "реки": "моряки,",
   "верь": "проверь",
   "о": "",
   "шестнадцатого": "16-го"
@@ -70,24 +70,17 @@
   },
   {
    "from": 11.27,
-   "to": 12.45,
+   "to": 13.14,
    "anim": "pop",
    "behind": true,
-   "html": "<div class=num style='left:70px;top:205px;font-size:230px;letter-spacing:-10px'>1</div><div class=lbl style='left:260px;top:240px;font-size:50px;line-height:1.05'><span class=w>поездки</span><br><span class=y data-at=11.89>к родственникам</span></div>"
+   "html": "<div class=num style='left:70px;top:205px;font-size:230px;letter-spacing:-10px'>1</div><div class=lbl style='left:260px;top:240px;font-size:50px;line-height:1.05'><span class=w>к родственникам</span><br><span class=y data-at=12.47>из ЕС</span></div>"
   },
   {
-   "from": 12.47,
-   "to": 13.45,
-   "anim": "pop",
-   "behind": true,
-   "html": "<div class=num style='left:70px;top:205px;font-size:230px;letter-spacing:-10px'>2</div><div class=lbl style='left:260px;top:240px;font-size:50px;line-height:1.05'><span class=w>родственники</span><br><span class=y data-at=12.69>из ЕС</span></div>"
-  },
-  {
-   "from": 13.47,
+   "from": 13.18,
    "to": 14.55,
    "anim": "pop",
    "behind": true,
-   "html": "<div class=num style='left:70px;top:205px;font-size:230px;letter-spacing:-10px'>3</div><div class=lbl style='left:260px;top:240px;font-size:50px;line-height:1.05'><span class=w>водители</span><br><span class=y data-at=13.93>и пилоты</span></div>"
+   "html": "<div class=num style='left:70px;top:205px;font-size:230px;letter-spacing:-10px'>2</div><div class=lbl style='left:260px;top:240px;font-size:50px;line-height:1.05'><span class=w>моряки, водители</span><br><span class=y data-at=13.93>и пилоты</span></div>"
   },
   {
    "from": 14.62,
