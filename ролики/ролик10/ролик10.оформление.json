@@ -1,0 +1,135 @@
+{
+ "wide": true,
+ "headSize": 84,
+ "headMargin": 100,
+ "headWrap": true,
+ "wordSize": 44,
+ "wordPos": [
+  540,
+  1340
+ ],
+ "personDir": "спикер",
+ "fix": {
+  "словении": "Словении",
+  "словению": "Словению",
+  "россии": "России",
+  "ес": "ЕС",
+  "внж": "ВНЖ",
+  "рф": "РФ",
+  "еще": "ещё",
+  "все": "всё",
+  "реки": "",
+  "верь": "проверь",
+  "о": "",
+  "шестнадцатого": "16-го"
+ },
+ "heads": [
+  {
+   "from": 33.11,
+   "to": 34.83,
+   "y": 350,
+   "cta": true,
+   "html": "<span class=a>подпишись</span>"
+  }
+ ],
+ "overlays": [
+  {
+   "from": 0.15,
+   "to": 2.55,
+   "anim": "blur",
+   "behind": true,
+   "html": "<div class=lbl style='left:80px;right:80px;text-align:center;top:350px;font-size:70px;line-height:1.02'><span class=w>ещё одна страна</span><br><span class=y data-at=1.27>закрыла визы</span></div>"
+  },
+  {
+   "from": 2.62,
+   "to": 5.09,
+   "anim": "blur",
+   "behind": true,
+   "html": "<div class=lbl style='left:80px;right:80px;text-align:center;top:350px;font-size:70px;line-height:1.02'><span class=w>учёба или работа</span><br><span class=y data-at=4.62>в Словении?</span></div>"
+  },
+  {
+   "from": 5.16,
+   "to": 6.55,
+   "anim": "blur",
+   "behind": true,
+   "html": "<div class=lbl style='left:80px;right:80px;text-align:center;top:350px;font-size:80px;line-height:1.02'><span class=w>плохие</span><br><span class=y data-at=6.18>новости</span></div>"
+  },
+  {
+   "from": 6.62,
+   "to": 10.45,
+   "anim": "pop",
+   "behind": true,
+   "html": "<div class=num style='left:60px;top:290px;font-size:380px;letter-spacing:-14px'>16</div><div class=lbl style='left:560px;top:350px;font-size:58px;line-height:1.05'>ноября<br><span class=y data-at=9.05>визовый центр</span><br><span class=y data-at=9.49>не принимает</span></div>"
+  },
+  {
+   "from": 10.51,
+   "to": 11.25,
+   "anim": "blur",
+   "behind": true,
+   "html": "<div class=lbl style='left:80px;right:80px;text-align:center;top:350px;font-size:80px;line-height:1.02'><span class=w>остались</span><br><span class=y data-at=10.98>только</span></div>"
+  },
+  {
+   "from": 11.27,
+   "to": 12.45,
+   "anim": "pop",
+   "behind": true,
+   "html": "<div class=num style='left:70px;top:300px;font-size:330px;letter-spacing:-10px'>1</div><div class=lbl style='left:330px;top:370px;font-size:56px;line-height:1.05'><span class=w>поездки</span><br><span class=y data-at=11.89>к родственникам</span></div>"
+  },
+  {
+   "from": 12.47,
+   "to": 13.45,
+   "anim": "pop",
+   "behind": true,
+   "html": "<div class=num style='left:70px;top:300px;font-size:330px;letter-spacing:-10px'>2</div><div class=lbl style='left:330px;top:370px;font-size:56px;line-height:1.05'><span class=w>родственники</span><br><span class=y data-at=12.69>из ЕС</span></div>"
+  },
+  {
+   "from": 13.47,
+   "to": 14.55,
+   "anim": "pop",
+   "behind": true,
+   "html": "<div class=num style='left:70px;top:300px;font-size:330px;letter-spacing:-10px'>3</div><div class=lbl style='left:330px;top:370px;font-size:60px;line-height:1.05'><span class=w>водители</span><br><span class=y data-at=13.93>и пилоты</span></div>"
+  },
+  {
+   "from": 14.62,
+   "to": 17.18,
+   "anim": "blur",
+   "behind": true,
+   "html": "<div class=lbl style='left:80px;right:80px;text-align:center;top:350px;font-size:68px;line-height:1.02'><span class=w>надолго ли это —</span><br><span class=y data-at=15.42>никто не знает</span></div>"
+  },
+  {
+   "from": 17.25,
+   "to": 20.73,
+   "anim": "blur",
+   "behind": true,
+   "html": "<div class=lbl style='left:80px;right:80px;text-align:center;top:350px;font-size:80px;line-height:1.02'><span class=w>что делать</span><br><span class=y data-at=17.79>тебе?</span></div>"
+  },
+  {
+   "from": 20.81,
+   "to": 23.45,
+   "anim": "blur",
+   "behind": true,
+   "html": "<div class=lbl style='left:80px;right:80px;text-align:center;top:350px;font-size:80px;line-height:1.02'><span class=w>не сидеть</span><br><span class=y data-at=21.83>и не ждать</span></div>"
+  },
+  {
+   "from": 23.5,
+   "to": 24.59,
+   "anim": "blur",
+   "behind": true,
+   "html": "<div class=lbl style='left:80px;right:80px;text-align:center;top:350px;font-size:80px;line-height:1.02'><span class=w>есть</span><br><span class=y data-at=23.86>другие страны</span></div>"
+  },
+  {
+   "from": 24.63,
+   "to": 29.05,
+   "anim": "blur",
+   "behind": true,
+   "html": "<div class=lbl style='left:80px;right:80px;text-align:center;top:350px;font-size:58px;line-height:1.02'><span class=w>есть ВНЖ не в РФ?</span><br><span class=y data-at=27.82>проверь, где подаваться</span></div>"
+  },
+  {
+   "from": 29.28,
+   "to": 33.0,
+   "anim": "blur",
+   "behind": true,
+   "html": "<div class=lbl style='left:80px;right:80px;text-align:center;top:350px;font-size:64px;line-height:1.02'><span class=w>напиши нам —</span><br><span class=y data-at=30.74>подберём варианты</span></div>"
+  }
+ ]
+}
