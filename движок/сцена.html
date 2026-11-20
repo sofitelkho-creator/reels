@@ -120,7 +120,8 @@ function draw(t, src, psrc) {
   });
   // свободные надписи: blur — из размытия (как фразы), wipe — выезжает слева направо (полосы), pop — растёт из 70 %
   (P.overlays || []).forEach((o, i) => {
-    const k = inOut(t, o.from, o.to, .3, .2), d = $('#o' + i);
+    // fade — длительность проявления (0 — видна с первого кадра); fadeOut — растворения
+    const k = inOut(t, o.from - (o.fade === 0 ? 1 : 0), o.to, o.fade || .3, o.fadeOut || .2), d = $('#o' + i);
     d.style.opacity = k ? Math.min(1, k * 1.5) : 0;
     // data-at — часть надписи (строка, подпись) появляется ровно в момент, когда это слово произносят, а не раньше
     d.querySelectorAll('[data-at]').forEach(e => { const q = ease((t - +e.dataset.at) / .18); e.style.opacity = q; e.style.filter = `blur(${(1 - q) * 8}px)`; });
