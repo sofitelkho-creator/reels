@@ -576,10 +576,34 @@
  "personDir": "/home/user/reels/ролики/ролик10/спикер",
  "overlays": [
   {
+   "from": 0.0,
+   "to": 2.59,
+   "anim": "kb",
+   "html": "<img class=full src='file:///home/user/reels/картинки/словения/любляна.png'>"
+  },
+  {
+   "from": 6.62,
+   "to": 10.45,
+   "anim": "kb",
+   "html": "<img class=full src='file:///home/user/reels/картинки/словения/отказ.png'>"
+  },
+  {
+   "from": 23.5,
+   "to": 24.59,
+   "anim": "kb",
+   "html": "<img class=full src='file:///home/user/reels/картинки/словения/флаг_ес.png'>"
+  },
+  {
+   "from": 29.28,
+   "to": 33.0,
+   "anim": "kb",
+   "html": "<img class=full src='file:///home/user/reels/картинки/дубай/самолёт.png'>"
+  },
+  {
    "from": 0.15,
    "to": 2.55,
    "anim": "blur",
-   "behind": true,
+   "behind": false,
    "html": "<div class=lbl style='left:80px;right:80px;text-align:center;top:230px;font-size:70px;line-height:1.02'><span class=w>ещё одна страна</span><br><span class=y data-at=1.27>закрыла визы</span></div>"
   },
   {
@@ -600,7 +624,7 @@
    "from": 6.62,
    "to": 10.45,
    "anim": "pop",
-   "behind": true,
+   "behind": false,
    "html": "<div class=num style='left:90px;top:195px;font-size:250px;letter-spacing:-14px'>16</div><div class=lbl style='left:440px;top:225px;font-size:56px;line-height:1.05'>ноября<br><span class=y data-at=9.05>визовый центр</span><br><span class=y data-at=9.05>закрыт</span></div>"
   },
   {
@@ -649,7 +673,7 @@
    "from": 23.5,
    "to": 24.59,
    "anim": "blur",
-   "behind": true,
+   "behind": false,
    "html": "<div class=lbl style='left:80px;right:80px;text-align:center;top:230px;font-size:80px;line-height:1.02'><span class=w>есть</span><br><span class=y data-at=23.86>другие страны</span></div>"
   },
   {
@@ -663,7 +687,7 @@
    "from": 29.28,
    "to": 33.0,
    "anim": "blur",
-   "behind": true,
+   "behind": false,
    "html": "<div class=lbl style='left:80px;right:80px;text-align:center;top:230px;font-size:64px;line-height:1.02'><span class=w>напиши нам —</span><br><span class=y data-at=30.74>подберём варианты</span></div>"
   }
  ],
